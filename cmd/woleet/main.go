@@ -8,7 +8,8 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"woleet"
+
+	"github.com/Squirrel-Entreprise/woleet"
 )
 
 func main() {
