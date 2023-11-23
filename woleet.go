@@ -188,6 +188,16 @@ func ComputeSHA256Hash(filePath string) (string, error) {
 	return hashString, nil
 }
 
+// ComputeSHA256HashBytes Compute the SHA256 hash of a byte array.
+func ComputeSHA256HashBytes(contents []byte) (string, error) {
+	hasher := sha256.New()
+	hasher.Write(contents)
+	hashBytes := hasher.Sum(nil)
+	hashString := hex.EncodeToString(hashBytes)
+
+	return hashString, nil
+}
+
 // VerifySignature verifies the signature of a Woleet callback
 func VerifySignature(r *http.Request, secret string) (bool, error) {
 	body, err := io.ReadAll(r.Body)
